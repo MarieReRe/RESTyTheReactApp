@@ -13,11 +13,14 @@ class Form extends React.Component {
     };
   }
   async getDataFromApi(){
-    let response = await fetch(this.state.url);
+    let response = await fetch(this.state.url)
     let body = await response.json();
-    this.props.onReceiveResults(body);  
+    let header = [...response.headers.entries()]
+    let statusCode =  response.status;
+    this.props.onReceiveResults(body, header, statusCode);  
+   
+    
   }
-//make async
   handleSubmit =  e => {
     e.preventDefault();
 

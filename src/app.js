@@ -17,16 +17,24 @@ class App extends React.Component {
     this.state = {
      Results: {
         statusCode: null,
-        headers: null,
+        header: null,
         body: null,
      },
     }
   }
 
  //method goes here: this is what the results page will use to eventually render the results....parent to child
-  setResults = body => {
-    this.setState({Results: body});
-  }
+  setResults = (body, header, statusCode) => {
+    this.setState({Results:{
+        statusCode,
+        header,
+        body,}
+
+  })
+};
+ 
+
+  //
 
 
   //funtion that recieves the results
