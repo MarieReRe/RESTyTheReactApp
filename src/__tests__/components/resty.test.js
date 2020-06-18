@@ -3,7 +3,7 @@ import { shallow, mount } from 'enzyme';
 
 
 
-import Form from '../../components/form';
+import Form from '../../components/form/form';
 
 
 // [] 1. Does it properly store the users input into state?
@@ -25,15 +25,14 @@ describe('<Form />', () => {
 
         expect(app.state('method')).toBe('get');
         expect(app.find('#get').props().className).toBe('active');
-        expect(app.find('#get').hasClass('active')).toBe('true');
+        expect(app.find('#get').hasClass('active')).toBe(true);
 
         let form = app.find('form');
         form.simulate('submit');
 
         expect(app.find('span.url').text()).toBe('www');
 
-        expect(app.find('input').props().value).toBeFalsey();
+        expect(app.find('input').props().value).toBeFalsy();
         expect(app.find('#get').hasClass('active')).toBe(false);
-
     });
 });
