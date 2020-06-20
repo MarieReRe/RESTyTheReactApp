@@ -9,6 +9,8 @@ import Footer from './components/footer';
 import Form from './components/form/form';
 import Results from './components/results'
 
+
+//parent
 class App extends React.Component {
   constructor(props) {
     super(props)
@@ -19,17 +21,17 @@ class App extends React.Component {
         statusCode: null,
         header: null,
         body: null,
-     },
+     }
     }
   }
 
  //method goes here: this is what the results page will use to eventually render the results....parent to child
   setResults = (body, header, statusCode) => {
-    this.setState({Results:{
+    this.setState({
+      Results:{
         statusCode,
         header,
         body,}
-
   })
 };
  
@@ -38,13 +40,21 @@ class App extends React.Component {
 
 
   //funtion that recieves the results
+  //onRecieveResults is a prop
   render() {
     return (
       <React.Fragment>
         <Header />
-        <Form onReceiveResults={this.setResults}/>
+        <Switch>
+          <Route exact path="/">
+            <Form onReceiveResults={this.setResults}/>
+          </Route>
+          <Route exact path="/history">
+            <History/>
+          </Route>
         <Results body={this.state.Results} />
         <Footer />
+        </Switch>
       </React.Fragment>
     );
   }

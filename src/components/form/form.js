@@ -12,15 +12,17 @@ class Form extends React.Component {
       request: {},
     };
   }
+
+
   async getDataFromApi(){
     let response = await fetch(this.state.url)
     let body = await response.json();
     let header = [...response.headers.entries()]
     let statusCode =  response.status;
-    this.props.onReceiveResults(body, header, statusCode);  
-   
-    
+    this.props.onReceiveResults(body, header, statusCode);   
   }
+
+
   handleSubmit =  e => {
     e.preventDefault();
 
@@ -31,6 +33,8 @@ class Form extends React.Component {
         url: this.state.url,
         method: this.state.method,
       };
+
+
       //get data here
       this.getDataFromApi();
      
