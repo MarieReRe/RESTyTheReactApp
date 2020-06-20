@@ -10,11 +10,12 @@ import Footer from './components/footer';
 import Form from './components/form/form';
 import Results from './components/results';
 import History from './components/history'
-import Modal from './components/modal'
+import About from './components/about'
+import Nav from './components/nav'
 
 
 //parent
-class App extends React.Component {
+export default class App extends React.Component {
   constructor(props) {
     super(props)
 
@@ -50,13 +51,14 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <Header />
+        <Nav />
         <Switch>
           <Route exact path="/">
             <Form onReceiveResults={this.setResults}/>
             <Results body={this.state.Results} />
           </Route>
-          <Route exact path ="/about">
-            
+          <Route exact path ="/about"  component={About}>
+
           </Route>
           <Route exact path="/history">
             <History history={this.state.History}/>
@@ -69,4 +71,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+

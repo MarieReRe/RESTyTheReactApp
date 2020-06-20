@@ -4,7 +4,7 @@ import { Link, Route } from 'react-router-dom';
 import { If } from '../if';
 import Modal from '../modal';
 
-export default class Home extends React.Component {
+export default class About extends React.Component {
   constructor() {
     super();
 
@@ -25,12 +25,10 @@ export default class Home extends React.Component {
     return (
       <>
         <h2>Welcome</h2>
-        <p>You might be interested in our <Link to="/users">Users</Link></p>
+        <p> RESTy is an app based on the design of another app called Postman!</p>
+        <p>You might be interested in our <Link to="/">API Search</Link></p>
 
-        <button onClick={this.toggleSearchOurApiModalUsModal}>Contact Us</button>
-        or
-        <Link to="/contact">Contact Us via Route</Link>
-
+        <button onClick={this.toggleSearchOurApiModalUsModal}>Search Our Api</button>
         <If condition={showSearchOurApi}>
           <Modal title="Search" onClose={this.toggleSearchOurApiModalUsModal}>
             Google me, dummy
