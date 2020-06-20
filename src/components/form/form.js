@@ -47,6 +47,8 @@ class Form extends React.Component {
       this.setState({request, url, method});
       e.target.reset();
 
+  
+
     }
 
     else {
