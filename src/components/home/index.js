@@ -28,10 +28,10 @@ export default class About extends React.Component {
         <p> RESTy is an app based on the design of another app called Postman!</p>
         <p>You might be interested in our <Link to="/">API Search</Link></p>
 
-        <button onClick={this.toggleSearchOurApiModalUsModal}>Search Our Api</button>
+        <button onClick={this.toggleSearchOurApiModal}>Search Our Api</button>
         <If condition={showSearchOurApi}>
-          <Modal title="Search" onClose={this.toggleSearchOurApiModalUsModal}>
-            Google me, dummy
+          <Modal title="Search" onClose={this.toggleSearchOurApiModal}>
+            If you would like to search our Api close out of this really useful modal
           </Modal>
         </If>
 

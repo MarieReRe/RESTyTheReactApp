@@ -23,9 +23,11 @@ class Form extends React.Component {
   }
 
 
-  handleSubmit =  e => {
+  handleSubmit = async e => {
     e.preventDefault();
-
+    //need to capture now, before we await
+    // await give react a chance to reuse our event
+    let form =  e.target;
     if ( this.state.url && this.state.method ) {
 
       // Make an object that would be suitable for FETCH
@@ -35,8 +37,8 @@ class Form extends React.Component {
       };
 
 
-      //get data here
-      this.getDataFromApi();
+      //get data here this is async
+      await this.getDataFromApi();
      
       
 
@@ -45,9 +47,10 @@ class Form extends React.Component {
       let method = '';
 
       this.setState({request, url, method});
-      e.target.reset();
+      form.reset();
 
-  
+      //TESTING TESTING WILL THIS WORK?
+      
 
     }
 

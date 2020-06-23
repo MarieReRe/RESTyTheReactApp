@@ -10,7 +10,7 @@ import Footer from './components/footer';
 import Form from './components/form/form';
 import Results from './components/results';
 import History from './components/history'
-import About from './components/about'
+import About from './components/home'
 import Nav from './components/nav'
 
 
