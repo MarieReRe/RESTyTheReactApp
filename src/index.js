@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 import App from './app';
+
 
 
 
@@ -11,4 +13,14 @@ class Main extends React.Component {
 }
 
 const rootElement = document.getElementById('root');
-ReactDOM.render(<Main />, rootElement);
+
+
+
+
+ReactDOM.render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <Main />
+    </BrowserRouter>
+  </React.StrictMode>
+  , rootElement);
