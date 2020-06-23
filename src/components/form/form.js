@@ -1,6 +1,6 @@
 import React from 'react';
-
 import './form.scss';
+import { getDefaultFormState } from 'react-jsonschema-form/lib/utils';
 
 class Form extends React.Component {
 
@@ -12,17 +12,29 @@ class Form extends React.Component {
       request: {},
     };
   }
-
-  handleSubmit = e => {
+  async getDataFromApi(){
+    let response = await fetch(this.state.url)
+    let body = await response.json();
+    let header = [...response.headers.entries()]
+    let statusCode =  response.status;
+    this.props.onReceiveResults(body, header, statusCode);  
+   
+    
+  }
+  handleSubmit =  e => {
     e.preventDefault();
 
     if ( this.state.url && this.state.method ) {
 
-      // Make an object that would be suitable for superagent
+      // Make an object that would be suitable for FETCH
       let request = {
         url: this.state.url,
         method: this.state.method,
       };
+      //get data here
+      this.getDataFromApi();
+     
+      
 
       // Clear old settings
       let url = '';
